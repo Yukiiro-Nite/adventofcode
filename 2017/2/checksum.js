@@ -1,5 +1,3 @@
-const getInput = require('../utils/getInput');
-
 function checksum(data) {
   return data.map(row => getMinMax(row))
     .reduce((acc, { min, max }) => acc += max - min, 0);
@@ -24,10 +22,6 @@ function cleanData(data) {
     .filter(row => row.length > 0);
 }
 
-getInput(2017, 2)
-  .then(data => {
-    const part1Answer = checksum(cleanData(data));
-
-    console.log(part1Answer);
-  })
-  .catch(() => console.log('Problem getting input!'));
+module.exports = {
+  "Part 1": input => checksum(cleanData(input))
+};
