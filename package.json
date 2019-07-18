@@ -11,5 +11,9 @@
     "adventofcode"
   ],
   "author": "Michael Bryant <michael.marlo.bryant@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
 }

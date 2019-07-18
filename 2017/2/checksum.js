@@ -1,6 +1,6 @@
-function checksum(data) {
-  return data.map(row => getMinMax(row))
-    .reduce((acc, { min, max }) => acc += max - min, 0);
+function checksum(data, rowReducer) {
+  return data.map(rowReducer)
+    .reduce((acc, val) => acc += val, 0);
 }
 
 function getMinMax(array = []) {
@@ -10,7 +10,7 @@ function getMinMax(array = []) {
     min = val < min ? val : min;
     max = val > max ? val : max;
   })
-  return { min, max };
+  return max-min;
 }
 
 function cleanData(data) {
@@ -22,6 +22,17 @@ function cleanData(data) {
     .filter(row => row.length > 0);
 }
 
+function getDivisor(array = []) {
+  for(let i=0; i<array.length; i++) {
+    for(let j=0; j<array.length; j++) {
+      if(array[i] % array[j] === 0 && i !== j) {
+        return array[i] / array[j];
+      }
+    }
+  }
+}
+
 module.exports = {
-  "Part 1": input => checksum(cleanData(input))
+  "Part 1": input => checksum(cleanData(input), getMinMax),
+  "Part 2": input => checksum(cleanData(input), getDivisor)
 };

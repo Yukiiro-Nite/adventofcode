@@ -1,3 +1,3 @@
 module.exports = () => {
-  return '';
+  return '_ga=GA1.2.1418153778.1543583190; _gid=GA1.2.664457124.1543725954; _gat=1; session=53616c7465645f5fd1be2e9b525292e0e8ff4a31c979976b29ab33240aa550d3b924a5ab93e14db18de1b46b27399b0e';
 }
